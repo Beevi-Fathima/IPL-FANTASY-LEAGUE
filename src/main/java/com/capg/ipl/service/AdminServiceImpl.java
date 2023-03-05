@@ -1,8 +1,6 @@
 package com.capg.ipl.service;
 
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -42,10 +40,10 @@ public class AdminServiceImpl implements AdminService{
 	private MatchRepository matchRepo;
 	
 	@Autowired
-	private BiddingRepository biddingRepo;
+	private BidderRepository bidderRepo;
 	
 	@Autowired
-	private BidderRepository bidderRepo;
+	private BiddingRepository biddingRepo;
     
 	@Override
 	public Admin registerAdmin(Admin admin) {
@@ -174,7 +172,7 @@ public class AdminServiceImpl implements AdminService{
 			}
 			teamRepo.save(teamWon);
 			matchRepo.save(md);
-//			List<Bidder> bidders = bidderRepo.findByMatchId(matchId);
+//		    List<Bidder> bidders = bidderRepo.findByMatchId(matchId);
 //			for(Bidder b:bidders) {
 //				if(((BiddingDetails) b.getBiddingDetails()).getTeam().getTeamId()==teamId) {
 //					int point = b.getPoints()+1;

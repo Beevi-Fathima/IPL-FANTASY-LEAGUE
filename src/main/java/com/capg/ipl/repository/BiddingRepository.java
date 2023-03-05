@@ -30,5 +30,6 @@ public interface BiddingRepository extends JpaRepository<BiddingDetails, Long>{
 	public void deleteMatchById(@Param(value="matchId") long matchId);
 	
 	public List<BiddingDetails> findByMatchDetailsAndBidder(MatchDetails matchDetails, Bidder bidder);
+	
 
 }
