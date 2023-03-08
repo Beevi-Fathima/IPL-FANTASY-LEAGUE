@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.capg.ipl.entity.Bidder;
 import com.capg.ipl.entity.BiddingDetails;
 import com.capg.ipl.entity.MatchDetails;
+import com.capg.ipl.entity.Team;
 import com.capg.ipl.exception.BidAlreadyExistException;
 import com.capg.ipl.exception.BidNotFoundException;
 import com.capg.ipl.exception.MatchAlreadyInProgressException;
@@ -49,6 +50,11 @@ public class BidderController {
 	@GetMapping("/all matches")
 	public List<MatchDetails> viewAllMatches() throws MatchNotFoundException {
 		return this.bidderService.viewAllMatches();
+	}
+	
+	@GetMapping("/team/{teamId}")
+	public Team getTeamById(@PathVariable long teamId) throws TeamNotFoundException {
+		return this.bidderService.getTeamById(teamId);
 	}
 	
 	@PostMapping("/bidding")

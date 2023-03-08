@@ -65,8 +65,23 @@
     <artifactId>springfox-swagger-ui</artifactId>
     <version>2.9.2</version>
 </dependency>
+<dependency>
+  <groupId>org.sonarsource.scanner.maven</groupId>
+  <artifactId>sonar-maven-plugin</artifactId>
+  <version>3.2</version>
+ </dependency>
 
   </dependencies>
+  <profiles>
+      <profile>
+        <id>sonar</id>
+          <activation><activeByDefault>true</activeByDefault></activation>
+          <properties>
+             <sonar.host.url>http://localhost:9000</sonar.host.url>
+              <sonar.login>2f913973d2abe31832c3513cdfb1b7a17e4ec894</sonar.login>
+          </properties>
+       </profile>
+   </profiles>
 
 	<build>
 		<plugins>

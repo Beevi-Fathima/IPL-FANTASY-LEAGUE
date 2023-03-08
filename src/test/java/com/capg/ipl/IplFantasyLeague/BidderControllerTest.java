@@ -1,5 +1,6 @@
 package com.capg.ipl.IplFantasyLeague;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
@@ -8,6 +9,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,6 +24,8 @@ import com.capg.ipl.controller.BidderController;
 import com.capg.ipl.entity.Bidder;
 import com.capg.ipl.entity.BiddingDetails;
 import com.capg.ipl.entity.MatchDetails;
+import com.capg.ipl.entity.Team;
+import com.capg.ipl.repository.TeamRepository;
 import com.capg.ipl.service.BidderService;
 
 import junit.framework.Assert;
@@ -78,8 +82,7 @@ public class BidderControllerTest {
 	 public void testGetPoints() throws  Exception{
 		 long bidderId = 1;
 		 int expectedPoints = 50;
-		 Bidder bidder = new Bidder();
-		 when(bidderService.viewPoints(bidderId)).thenReturn(expectedPoints);
+		 Mockito.when(bidderService.viewPoints(bidderId)).thenReturn(expectedPoints);
 		 int actualPoints = bidderController.getPoints(bidderId);
 		 assertEquals(expectedPoints, actualPoints);
 	 }
@@ -93,6 +96,16 @@ public class BidderControllerTest {
 	     Mockito.when(bidderService.viewAllMatches()).thenReturn(expectedMatches);
 	     List<MatchDetails> actualMatches = bidderController.viewAllMatches();
 	     Assert.assertEquals(expectedMatches, actualMatches);
-	     }
-
+	}
+     
+    @Test
+     public void TestGetTeamById() throws Exception {
+    	Team team = new Team();
+        team.setTeamId(1L);
+        team.setTeamName("Test Team");
+        when(bidderService.getTeamById(1L)).thenReturn(team);
+        Team result = bidderController.getTeamById(1L);
+        assertEquals(team.getTeamId(), result.getTeamId());
+        assertEquals(team.getTeamName(), result.getTeamName());
+     }
 }

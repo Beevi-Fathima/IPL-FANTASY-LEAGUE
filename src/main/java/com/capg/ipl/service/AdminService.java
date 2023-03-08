@@ -32,7 +32,6 @@ public interface AdminService {
 	public List<Bidder> getAllBidders() throws BiddingNotStartedException;  //ni
 	public void updateScore(long bidderId) throws BidderNotFoundException; //fathi
 	public void declareTeamResult(long matchId,long teamId) throws MatchNotFoundException; //fathi
-	//public List<BiddingDetails> declareBidderResult(long matchId) throws MatchAlreadyInProgressException, MatchNotFoundException;
 	
 	public void deleteTeam(long teamId) throws TeamNotFoundException; //ale
 	

@@ -83,7 +83,7 @@ public void testDeleteMatchById() throws MatchNotFoundException, MatchAlreadyInP
 	assertEquals("Match Deleted",response.getBody());
 }
 @Test
-public void testDeclareResult() throws MatchNotFoundException {
+public void testDeclareResult() throws Exception {
 	 Long matchId = 1L;
 	 Long teamId = 2L;
 	 doNothing().when(adminService).declareTeamResult(matchId, teamId);
