@@ -78,7 +78,7 @@
           <activation><activeByDefault>true</activeByDefault></activation>
           <properties>
              <sonar.host.url>http://localhost:9000</sonar.host.url>
-              <sonar.login>2f913973d2abe31832c3513cdfb1b7a17e4ec894</sonar.login>
+              <sonar.login>88aa0aa670a86aa98b0a36d23f38d64d8662c5dc</sonar.login>
           </properties>
        </profile>
    </profiles>

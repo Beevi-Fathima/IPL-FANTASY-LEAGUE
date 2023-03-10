@@ -67,7 +67,6 @@ public class AdminController {
 	@PutMapping("/match/{matchId}") //
 	public ResponseEntity<String> updateMatch(@PathVariable long matchId,MatchDetails matchDetails) throws MatchNotFoundException,MatchAlreadyInProgressException {
 		this.adminService.updateMatch(matchId,matchDetails);
-		System.out.println("Controller:"+matchDetails);
 		return new ResponseEntity<>("Match Updated Successfully",HttpStatus.OK);
 		
 	}

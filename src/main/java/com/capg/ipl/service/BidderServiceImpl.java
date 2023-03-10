@@ -158,8 +158,7 @@ public class BidderServiceImpl implements BidderService{
 	public Team getTeamById(long teamId) throws TeamNotFoundException {
 		Optional<Team> t = teamRepo.findById(teamId);
 		if(t.isPresent()) {
-			Team team = teamRepo.getOne(teamId);
-			return team;
+			return teamRepo.getOne(teamId);
 		}
 		throw new TeamNotFoundException();
 	}
